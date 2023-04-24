@@ -15,7 +15,7 @@ contract MotobloqToken is ERC721MinterBurnerPauser, ERC2981 {
         public
         view
         virtual
-        override(ERC721, ERC2981)
+        override(ERC721MinterBurnerPauser, ERC2981)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
