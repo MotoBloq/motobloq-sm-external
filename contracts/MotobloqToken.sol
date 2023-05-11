@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.17;
 
 import "./ERC721MinterBurnerPauser.sol";
 import "@openzeppelin/contracts/token/common/ERC2981.sol";
