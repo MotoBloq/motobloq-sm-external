@@ -15,7 +15,7 @@ export function nodeUrl(networkName: string): string {
 
   if (networkName === 'localhost') {
     // do not use ETH_NODE_URI
-    return 'http://127.0.0.1:7545';
+    return 'http://127.0.0.1:8545';
   }
 
   let uri = process.env.ETH_NODE_URI;
@@ -36,8 +36,6 @@ export function getMnemonic(networkName?: string): string {
   if (networkName) {
     const mnemonic = process.env['MNEMONIC_' + networkName.toUpperCase()];
     if (mnemonic && mnemonic !== '') {
-      console.log(mnemonic)
-
       return mnemonic;
     }
   }
