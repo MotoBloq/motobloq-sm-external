@@ -3,3 +3,7 @@ artifacts
 cache
 node_modules
 /coverage/
+coverage
+coverage.json
+deployments
+typechain-types

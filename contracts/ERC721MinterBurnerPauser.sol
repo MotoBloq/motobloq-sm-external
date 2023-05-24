@@ -10,7 +10,6 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract ERC721MinterBurnerPauser is
-    Context,
     AccessControl,
     ERC721Burnable,
     ERC721Pausable,
