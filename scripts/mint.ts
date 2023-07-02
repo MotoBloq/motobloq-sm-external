@@ -1,7 +1,7 @@
 const { task } = require("hardhat/config");
 const { getContract } = require("./helpers");
 
-task("mint", "Mints from the Motobloq Token contract")
+const mint = task("mint", "Mints from the Motobloq Token contract")
     .addParam("address", "The address to receive a token")
     .addParam("tokenId", "The token id to mint")
     .addParam("tokenUri", "The token uri to mint")
@@ -18,7 +18,7 @@ task("mint", "Mints from the Motobloq Token contract")
     });
 
 
-task("token-uri", "Fetches the token metadata for the given token ID")
+const tokenUri = task("token-uri", "Fetches the token metadata for the given token ID")
     .addParam("tokenId", "The tokenID to fetch metadata for")
     .setAction(async function (taskArguments, hre) {
         const contract = await getContract("MotobloqToken", hre);
@@ -35,3 +35,6 @@ task("token-uri", "Fetches the token metadata for the given token ID")
         const metadata = await fetch(gateway_url).then(res => res.json());
         console.log(`Metadata fetch response: ${JSON.stringify(metadata, null, 2)}`);
     });
+
+
+export default { mint, tokenUri };

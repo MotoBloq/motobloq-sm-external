@@ -32,6 +32,31 @@ describe("MotobloqToken", function() {
         expect(await motobloqToken.tokenURI(tokenId)).to.equal(tokenURI);
     });
 
+    it("Should change token URI", async function() {
+        const initialOwner = accounts[0];
+        const tokenId = 1;
+        const tokenURI = "https://token.com/1";
+        const newTokenURI = "https://newtoken.com/1";
+
+        await motobloqToken.connect(initialOwner).mint(initialOwner.address, tokenId, tokenURI);
+        await motobloqToken.connect(initialOwner).setTokenURI(tokenId, newTokenURI);
+
+        expect(await motobloqToken.tokenURI(tokenId)).to.equal(newTokenURI);
+    });
+
+    it("Only admin can change token URI", async function() {
+        const initialOwner = accounts[0];
+        const someoneElse = accounts[1];
+        const tokenId = 1;
+        const tokenURI = "https://token.com/1";
+        const newTokenURI = "https://newtoken.com/1";
+
+        await motobloqToken.connect(initialOwner).mint(initialOwner.address, tokenId, tokenURI);
+
+        await expect(motobloqToken.connect(someoneElse).setTokenURI(tokenId, newTokenURI))
+            .to.be.revertedWith('MotobloqToken: must have admin role to set token URI');
+    });
+
     it('Only allows minter to mint', async function () {
         const someoneElse = accounts[1];
         const tokenId = 1;

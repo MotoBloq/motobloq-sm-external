@@ -32,6 +32,17 @@ export function nodeUrl(networkName: string): string {
   return uri;
 }
 
+export function getKms(networkName?: string): string {
+  if (networkName) {
+    const kmsKeyId = process.env['KMS_KEY_ID_' + networkName.toUpperCase()];
+    if (kmsKeyId && kmsKeyId !== '') {
+      return kmsKeyId;
+    }
+  }
+
+  throw new Error(`environment variable "KMS_KEY_ID" not configured for network ${networkName}`);
+}
+
 export function getMnemonic(networkName?: string): string {
   if (networkName) {
     const mnemonic = process.env['MNEMONIC_' + networkName.toUpperCase()];

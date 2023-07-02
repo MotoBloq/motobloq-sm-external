@@ -2,7 +2,9 @@ import 'hardhat-deploy';
 import '@nomicfoundation/hardhat-toolbox';
 import "@rumblefishdev/hardhat-kms-signer";
 import {HardhatUserConfig} from "hardhat/config";
-import {nodeUrl, accounts} from './utils/network';
+import {accounts, getKms, nodeUrl} from './utils/network';
+import "@rumblefishdev/hardhat-kms-signer";
+
 
 
 const config: HardhatUserConfig = {
@@ -29,12 +31,12 @@ const config: HardhatUserConfig = {
     sepolia: {
       url: nodeUrl('sepolia'),
       // accounts: accounts('sepolia'),
-      kmsKeyId: "9026f063-b969-4279-93b4-0d7a006bf6b6"
+      kmsKeyId: "326c2079-3c96-4a58-b111-92eae7340c4f"
     },
-    goerli: {
-      url: nodeUrl('goerli'),
-      accounts: accounts('goerli'),
-    },
+    // goerli: {
+    //   url: nodeUrl('goerli'),
+    //   kmsKeyId: getKms('goerli'),
+    // },
     mainnet: {
       url: nodeUrl('mainnet'),
       accounts: accounts('mainnet'),
