@@ -10,7 +10,7 @@ contract MotobloqToken is ERC721MinterBurnerPauser, ERC2981 {
     event TokenURIChange(uint256 indexed tokenId, string tokenURI);
 
     constructor(address royaltyReceiver, uint96 feeNumerator)
-        ERC721MinterBurnerPauser("MotobloqToken", "MBT", "")
+        ERC721MinterBurnerPauser("MotoBloq", "MB", "")
     {
         _setDefaultRoyalty(royaltyReceiver, feeNumerator);
     }
@@ -33,14 +33,14 @@ contract MotobloqToken is ERC721MinterBurnerPauser, ERC2981 {
         _resetTokenRoyalty(tokenId);
     }
 
-    function setTokenURI(uint256 tokenId, string memory _tokenURI) external {
+    function setTokenURI(uint256 tokenId, string memory tokenURI) external {
         require(
             hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
             "MotobloqToken: must have admin role to set token URI"
         );
 
-        _setTokenURI(tokenId, _tokenURI);
+        _setTokenURI(tokenId, tokenURI);
 
-        emit TokenURIChange(tokenId, _tokenURI);
+        emit TokenURIChange(tokenId, tokenURI);
     }
 }
