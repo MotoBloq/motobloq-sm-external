@@ -33,6 +33,15 @@ contract MotobloqToken is ERC721MinterBurnerPauser, ERC2981 {
         _resetTokenRoyalty(tokenId);
     }
 
+    /**
+     * @dev Replaces an existing tokenURI for a given token ID with a new one.
+     * @param tokenId - An ID of an existing token
+     * @param tokenURI - A token URI to a new metadata JSON
+     *
+     * This function can be called only by an account with DEFAULT_ADMIN_ROLE assigned.
+     *
+     * Emits a {TokenURIChange} event.
+     */
     function setTokenURI(uint256 tokenId, string memory tokenURI) external {
         require(
             hasRole(DEFAULT_ADMIN_ROLE, _msgSender()),
