@@ -17,8 +17,8 @@ describe("MotobloqToken", function() {
     });
 
     it("Should return the right name and symbol", async function() {
-        expect(await motobloqToken.name()).to.equal("MotobloqToken");
-        expect(await motobloqToken.symbol()).to.equal("MBT");
+        expect(await motobloqToken.name()).to.equal("MotoBloq");
+        expect(await motobloqToken.symbol()).to.equal("MB");
     });
 
     it("Should mint a new token", async function() {
