@@ -8,7 +8,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   await deploy('MotobloqToken', {
     from: deployer,
-    args: ["0x6b0A8a45Ac25E33Cb3dca771B8B830B9d7DBCEa4", 500],
+    args: ["0xCDA0295D02F11d0d2395B302C86c0E3E85eFCA2f", 500],
     log: true,
     autoMine: true,
   });

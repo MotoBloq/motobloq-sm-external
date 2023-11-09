@@ -3,8 +3,12 @@ pragma solidity 0.8.17;
 
 import "./ERC721MinterBurnerPauser.sol";
 import "@openzeppelin/contracts/token/common/ERC2981.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MotobloqToken is ERC721MinterBurnerPauser, ERC2981 {
+/**
+* Ownable + Access Control => https://forum.openzeppelin.com/t/can-we-use-ownable-and-access-control-at-once/29135/2
+*/
+contract MotobloqToken is ERC721MinterBurnerPauser, ERC2981, Ownable {
 
 
     event TokenURIChange(uint256 indexed tokenId, string tokenURI);
@@ -51,5 +55,9 @@ contract MotobloqToken is ERC721MinterBurnerPauser, ERC2981 {
         _setTokenURI(tokenId, tokenURI);
 
         emit TokenURIChange(tokenId, tokenURI);
+    }
+
+    function renounceOwnership() public override onlyOwner {
+        revert("MotobloqToken: ownership cannot be renounced");
     }
 }

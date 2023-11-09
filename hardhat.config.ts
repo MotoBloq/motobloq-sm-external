@@ -30,16 +30,16 @@ const config: HardhatUserConfig = {
     },
     sepolia: {
       url: nodeUrl('sepolia'),
-      // accounts: accounts('sepolia'),
+      accounts: accounts('sepolia'),
+      // kmsKeyId: "326c2079-3c96-4a58-b111-92eae7340c4f"
+    },
+    goerli: {
+      url: nodeUrl('goerli'),
       kmsKeyId: "326c2079-3c96-4a58-b111-92eae7340c4f"
     },
-    // goerli: {
-    //   url: nodeUrl('goerli'),
-    //   kmsKeyId: getKms('goerli'),
-    // },
     mainnet: {
       url: nodeUrl('mainnet'),
-      accounts: accounts('mainnet'),
+      kmsKeyId: "6a46349e-002d-40c3-9dab-5541cb4d6c20"
     },
   },
 };
