@@ -4,6 +4,7 @@
   "description": "External smart contracts for Motobloq",
   "main": "index.js",
   "scripts": {
+    "export": "node scripts/export.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Motobloq",
@@ -15,7 +16,7 @@
     "aws-sdk": "^2.1390.0",
     "chai": "^4.3.7",
     "ethers": "^5.7.2",
-    "hardhat": "2.20.1",
+    "hardhat": "2.23.0",
     "hardhat-contract-sizer": "^2.10.0",
     "hardhat-deploy": "^0.11.28",
     "mocha": "^10.2.0",
